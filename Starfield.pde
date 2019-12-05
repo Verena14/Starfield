@@ -3,46 +3,7 @@ void setup()
 {
   size(800,600);
   noStroke();
-  parts = new ArrayList <Particle>();
-  for(int i = 0; i < 50; i++)
-  {
-    //Letter H
-    parts.add(new Vert(50,200,200));
-    parts.add(new Hori(300,50,100));
-    parts.add(new Vert(150,200,200));
-    //Letter E
-    parts.add(new Vert(200,200,200));
-    parts.add(new Hori(200,200,100));
-    parts.add(new Hori(300,200,100));
-    parts.add(new Hori(400,200,100));
-    //Letter L (1)
-    parts.add(new Vert(350,200,200));
-    parts.add(new Hori(400,350,100));
-    //Letter L (2)
-    parts.add(new Vert(500,200,200));
-    parts.add(new Hori(400,500,100));
-    //Letter O
-    parts.add(new Vert(650,200,200));
-    parts.add(new Hori(200,650,100));
-    parts.add(new Hori(400,650,100));
-    parts.add(new Vert(750,200,200));
-    //top line
-    parts.add(new Hori(100,0,800));
-    //bottom line
-    parts.add(new Hori(500,0,800));
-  }
-  
-  for(int i = 0; i < 70; i++)
-  {
-    parts.add(new Blocker());
-  }
-  
-  for(int i = 0; i < 1000; i++)
-  {
-    parts.add(new Particle());
-  }
-  
-  parts.add(new Cursor());
+  reset();
 }
 
 void draw()
@@ -258,4 +219,53 @@ class Cursor extends Particle
     myY = mouseY;
     super.move();
   }
+}
+
+public void mousePressed()
+{
+  reset();
+}
+
+public void reset()
+{
+    parts = new ArrayList <Particle>();
+  for(int i = 0; i < 50; i++)
+  {
+    //Letter H
+    parts.add(new Vert(50,200,200));
+    parts.add(new Hori(300,50,100));
+    parts.add(new Vert(150,200,200));
+    //Letter E
+    parts.add(new Vert(200,200,200));
+    parts.add(new Hori(200,200,100));
+    parts.add(new Hori(300,200,100));
+    parts.add(new Hori(400,200,100));
+    //Letter L (1)
+    parts.add(new Vert(350,200,200));
+    parts.add(new Hori(400,350,100));
+    //Letter L (2)
+    parts.add(new Vert(500,200,200));
+    parts.add(new Hori(400,500,100));
+    //Letter O
+    parts.add(new Vert(650,200,200));
+    parts.add(new Hori(200,650,100));
+    parts.add(new Hori(400,650,100));
+    parts.add(new Vert(750,200,200));
+    //top line
+    parts.add(new Hori(100,0,800));
+    //bottom line
+    parts.add(new Hori(500,0,800));
+  }
+  
+  for(int i = 0; i < 70; i++)
+  {
+    parts.add(new Blocker());
+  }
+  
+  for(int i = 0; i < 1000; i++)
+  {
+    parts.add(new Particle());
+  }
+  
+  parts.add(new Cursor());
 }
