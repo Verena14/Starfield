@@ -22,12 +22,12 @@ class Particle
   protected int myR, myG, myB;
   
   
-  public Particle()
+  public Particle(int n)
   {
     myX = Math.random()*800;
     myY = Math.random()*600;
     myAngle = Math.random()*360;
-    mySpeed = 10;
+    mySpeed = n;
     myXr = 10;
     myYr = 10;
     myR = 100;
@@ -132,7 +132,7 @@ class Vert extends Particle
     //a is stationary position
     //b is min range
     //c is range
-    super();
+    super(10);
     myR = 300;
     myX = a;
     myY = Math.random()*c + b;
@@ -177,13 +177,12 @@ class Blocker extends Particle
 {
   public Blocker()
   {
-    super();
+    super(5);
     myR = 0;
     myG = 0;
     myB = 0;
     myXr = Math.random()*30;
     myYr = Math.random()*30;
-    mySpeed = 5;
   }
   public void move()
   {
@@ -203,7 +202,7 @@ class Cursor extends Particle
 {
   public Cursor()
   {
-    super();
+    super(0);
     myR = 255;
     myG = 0;
     myB = 0;
@@ -262,9 +261,9 @@ public void reset()
     parts.add(new Blocker());
   }
   
-  for(int i = 0; i < 1000; i++)
+  for(int i = 0; i < 250; i++)
   {
-    parts.add(new Particle());
+    parts.add(new Particle(15));
   }
   
   parts.add(new Cursor());
